@@ -1,11 +1,12 @@
-import { Alert, Snackbar } from '@mui/material'
+import { Alert, Snackbar } from '@mui/material';
 
 interface SnackBarAlertProps {
-	setSnackbarOpen: (snackbarOpen: boolean) => void
+	setSnackbarOpen: (snackbarOpen: boolean) => void;
 	snackbarOpen: boolean;
 }
 
 export default function SnackBarAlert({ setSnackbarOpen, snackbarOpen }: SnackBarAlertProps) {
+
 	return (
 		<Snackbar
 			open={snackbarOpen}
@@ -22,5 +23,5 @@ export default function SnackBarAlert({ setSnackbarOpen, snackbarOpen }: SnackBa
 				¡Tarea creada con éxito!
 			</Alert>
 		</Snackbar>
-	)
+	);
 }

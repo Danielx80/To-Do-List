@@ -2,7 +2,7 @@
 import { useDrop } from "react-dnd";
 import { Paper, useTheme } from "@mui/material";
 import { useTaskStore } from "../../store/kanbanStore";
-import { useMemo } from "react";
+import { useMemo, useRef } from "react";
 import { TaskStatus } from "../../interface/Task";
 import { statusConfig } from "./statusConfig";
 import StackComponent from "./StackComponent";
@@ -12,6 +12,8 @@ export default function Column({ status }: { status: TaskStatus, }) {
   const theme = useTheme();
   const { tasks, searchTerm, moveTask } = useTaskStore();
 
+  //Utilizamos el useRef para almacenar el valor que muta
+  const ref = useRef<HTMLDivElement>(null);
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "task",
     drop: (item: { id: string; status: TaskStatus }) => {
@@ -36,11 +38,11 @@ export default function Column({ status }: { status: TaskStatus, }) {
     [tasks, searchTerm, status]
   )
 
-
+  drop(drop(ref));
   return (
     <Paper
       component="div"
-      ref={drop}
+      ref={ref}
       sx={{
         p: 2,
         bgcolor: statusConfig(theme)[status].bg,
@@ -59,7 +61,6 @@ export default function Column({ status }: { status: TaskStatus, }) {
         filteredTasks={filteredTasks}
         statusConfig={statusConfig}
         status={status}
-        theme={theme}
       />
 
       <StackComponent

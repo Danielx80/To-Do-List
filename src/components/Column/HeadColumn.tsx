@@ -1,5 +1,5 @@
 import CircleIcon from "@mui/icons-material/FiberManualRecord";
-import { Box, Theme, Typography } from "@mui/material";
+import { Box, Theme, Typography, useTheme } from "@mui/material";
 import { Task } from "../../interface/Task";
 import { statusConfig as confing } from './statusConfig';
 
@@ -7,10 +7,12 @@ interface HeadColumnProps {
 	filteredTasks: Task[];
 	status: Task['status'];
 	statusConfig: typeof confing;
-	theme: Theme;
 }
 
-export default function HeadColumn({ filteredTasks, status, statusConfig, theme }: HeadColumnProps) {
+export default function HeadColumn({ filteredTasks, status, statusConfig }: HeadColumnProps) {
+
+	const theme = useTheme()
+
 	return (
 		<Box display="flex" alignItems="center" gap={1.5} mb={3} sx={{ px: 1 }}>
 			<CircleIcon

@@ -2,12 +2,13 @@
 import { useDrag } from "react-dnd";
 import { useTheme } from "@mui/material";
 import { motion } from "framer-motion";
-import TaskCard from "./TaskCard";
-import { useMemo } from "react";
+import TaskCard from "./TaskCard/TaskCard";
+import { useMemo, useRef } from "react";
 import { Task } from "../interface/Task";
 
 export default function DraggableTask({ task }: { task: Task; index: number }) {
 
+  const ref = useRef<HTMLDivElement>(null);
   const theme = useTheme();
 
   const [{ isDragging }, drag] = useDrag(() => ({
@@ -30,12 +31,15 @@ export default function DraggableTask({ task }: { task: Task; index: number }) {
     [isDragging]
   );
 
+  drag(drag(ref));
+
   return (
     <motion.div
+      whileHover={{ scale: 1.1 }}
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      animate={{ opacity: 1, }}
       transition={{ duration: 0.3 }}
-      ref={drag}
+      ref={ref}
       style={{
         position: "relative",
         cursor: task.status === "Done" ? "default" : "grab",
@@ -44,7 +48,7 @@ export default function DraggableTask({ task }: { task: Task; index: number }) {
     >
       {/* Contenedor de la tarea */}
       <div style={dragStyles}>
-        <TaskCard task={task}/>
+        <TaskCard task={task} />
 
         {/* Cuando se arrastra */}
         {isDragging && (

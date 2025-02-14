@@ -1,30 +1,27 @@
 import { useState, useCallback, useRef } from "react";
-import {
-  Dialog,
-  useTheme,
-} from "@mui/material";
+import { Dialog } from "@mui/material";
 import { useTaskStore } from "../../store/kanbanStore";
 import SnackBarAlert from "./SnackBarAlert";
 import FloatingButton from "./FloatingButton";
-import Modal from "./Modal";
+import ModalComponent from "./ModalComponent";
+
 
 export default function CreateTask() {
   const [input, setInput] = useState("");
   const [open, setOpen] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false)
   const { addTask } = useTaskStore();
-  const theme = useTheme();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
-      if (input.trim()) {
-        addTask(input);
-        setInput("");
-        setOpen(false);
-        setSnackbarOpen(true)
-      }
+      if (!input.trim()) return;
+
+      addTask(input);
+      setInput("");
+      setOpen(false);
+      setSnackbarOpen(true);
     },
     [input, addTask]
   );
@@ -42,14 +39,15 @@ export default function CreateTask() {
         open={open}
         onClose={() => setOpen(false)}
         aria-labelledby="create-task-dialog-title"
+        aria-describedby="create-task-dialog-description"
       >
-        <Modal
+        <ModalComponent
           input={input}
           handleSubmit={handleSubmit}
           inputRef={inputRef}
           setOpen={setOpen}
           setInput={setInput}
-          theme={theme}
+          open={open}
         />
       </Dialog>
 

@@ -1,15 +1,16 @@
-import { Stack, Typography } from '@mui/material'
+import { Stack, Typography, useTheme } from '@mui/material'
 import DraggableTask from '../DraggableTask'
 import { Task } from '../../interface/Task';
-import { theme } from '../../theme/theme';
+import { statusConfig as confing } from './statusConfig';
 
 interface StackComponentProp {
-	filteredTasks: any;
+	filteredTasks: Task[];
 	status: Task['status']
-	statusConfig: any;
+	statusConfig: typeof confing;
 }
 
 export default function StackComponent({ filteredTasks, status, statusConfig }: StackComponentProp) {
+	const theme = useTheme();
 	return (
 		<Stack spacing={1.5}>
 			{filteredTasks.map((task: Task, index: number) => (

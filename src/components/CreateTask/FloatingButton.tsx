@@ -16,7 +16,7 @@ export default function FloatingButton({ handleOpen }: FloatingButtonProps) {
 				transition: "all 0.2s ease",
 			}}
 			color="primary"
-			aria-label="add"
+			aria-label="Crear una nueva tarea"
 			onClick={handleOpen}
 		>
 			<AddIcon />
