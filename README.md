@@ -1,13 +1,13 @@
 # Kanban Project
 
-Este es un proyecto de gestión de tareas tipo Kanban hecho con React, Material-UI y Zustand para el manejo del estado global.
+Este es un proyecto de gestión de tareas tipo Kanban hecho con **React**, **Material-UI** y **Zustand** para el manejo del estado global.
 
 ## Tecnologías Utilizadas
 
 - **React**
 - **Material-UI**
 - **Zustand**
-- **React DND**
+- **React DND** (Drag and Drop)
 
 ## Requisitos Previos
 
@@ -23,35 +23,37 @@ Asegúrate de tener instalados los siguientes programas en tu computadora:
 3. Ejecuta el siguiente comando para clonar el repositorio:
 
    ```bash
-   git clone https://github.com/TU-USUARIO/TU-REPOSITORIO.git
-
+   git clone https://github.com/Danielx80/To-Do-List.git
    ```
 
 4. Navega a la carpeta del proyecto recién clonado:
 
    ```bash
-   cd TU-REPOSITORIO
+   cd To-Do-List
    ```
 
-## Instalacon de dependencias
+## Instalación de Dependencias
 
-1. dentro de la carpeta del proyecto:
+1. Una vez dentro de la carpeta del proyecto, ejecuta:
 
    ```bash
    npm install
-
    ```
 
-2. Una ves instalada las dependencias:
+2. Una vez que las dependencias se hayan instalado correctamente, ejecuta el siguiente comando para iniciar el servidor de desarrollo:
+
    ```bash
    npm start
    ```
 
-```bash
-npm run dev
+   O, si prefieres usar un entorno de desarrollo optimizado:
 
-## Projecto en produccion
-comparto el link del proyecto en produccion
+   ```bash
+   npm run dev
+   ```
 
-[text](https://to-do-list-two-henna.vercel.app/)
-```
+## Proyecto en Producción
+
+Puedes ver el proyecto en producción en el siguiente enlace:
+
+[Ver Proyecto en Producción](https://to-do-list-two-henna.vercel.app/)
