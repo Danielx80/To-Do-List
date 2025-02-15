@@ -1,50 +1,57 @@
-# React + TypeScript + Vite
+# Kanban Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es un proyecto de gestión de tareas tipo Kanban hecho con React, Material-UI y Zustand para el manejo del estado global.
 
-Currently, two official plugins are available:
+## Tecnologías Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**
+- **Material-UI**
+- **Zustand**
+- **React DND**
 
-## Expanding the ESLint configuration
+## Requisitos Previos
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Asegúrate de tener instalados los siguientes programas en tu computadora:
 
-- Configure the top-level `parserOptions` property like this:
+- **Node.js**: [Descargar e instalar Node.js](https://nodejs.org/). Node.js es necesario para ejecutar el proyecto y gestionar dependencias.
+- **Git**: [Descargar e instalar Git](https://git-scm.com/). Git es necesario para clonar el repositorio.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Clonar el Repositorio
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+1. Abre tu terminal.
+2. Dirígete a la carpeta donde deseas guardar el proyecto.
+3. Ejecuta el siguiente comando para clonar el repositorio:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+   ```bash
+   git clone https://github.com/TU-USUARIO/TU-REPOSITORIO.git
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+   ```
+
+4. Navega a la carpeta del proyecto recién clonado:
+
+   ```bash
+   cd TU-REPOSITORIO
+   ```
+
+## Instalacon de dependencias
+
+1. dentro de la carpeta del proyecto:
+
+   ```bash
+   npm install
+
+   ```
+
+2. Una ves instalada las dependencias:
+   ```bash
+   npm start
+   ```
+
+```bash
+npm run dev
+
+## Projecto en produccion
+comparto el link del proyecto en produccion
+
+[text](https://to-do-list-two-henna.vercel.app/)
 ```

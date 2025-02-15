@@ -1,10 +1,16 @@
-export const formatDate = (date: string) => {
-  const d = new Date(date);
-  const day = String(d.getDate()).padStart(2, "0");
-  const month = String(d.getMonth() + 1).padStart(2, "0");
-  const year = d.getFullYear();
-  const hours = String(d.getHours()).padStart(2, "0");
-  const minutes = String(d.getMinutes()).padStart(2, "0");
+export const formatDate = (date?: string | Date) => {
+  // no valores nulos 
+  if (!date) return "Fecha no disponible"; 
 
-  return `${day}/${month}/${year} ${hours}:${minutes}`;
+  const d = new Date(date);
+  if (isNaN(d.getTime())) return "Fecha inválida"; // Manejo de errores en fechas incorrectas
+
+  return d.toLocaleString("es-MX", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false, 
+  });
 };

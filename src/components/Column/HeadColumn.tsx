@@ -1,15 +1,14 @@
 import CircleIcon from "@mui/icons-material/FiberManualRecord";
-import { Box, Theme, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { Task } from "../../interface/Task";
-import { statusConfig as confing } from './statusConfig';
+import { statusConfig } from "./statusConfig";
 
 interface HeadColumnProps {
 	filteredTasks: Task[];
 	status: Task['status'];
-	statusConfig: typeof confing;
 }
 
-export default function HeadColumn({ filteredTasks, status, statusConfig }: HeadColumnProps) {
+export default function HeadColumn({ filteredTasks, status, }: HeadColumnProps) {
 
 	const theme = useTheme()
 
@@ -26,7 +25,7 @@ export default function HeadColumn({ filteredTasks, status, statusConfig }: Head
 				fontWeight={600}
 				sx={{
 					color: theme.palette.text.primary,
-					fontFamily: theme.typography.fontFamily, // Usa la tipografía del tema
+					fontFamily: theme.typography.fontFamily,
 				}}
 			>
 				{statusConfig(theme)[status].label}

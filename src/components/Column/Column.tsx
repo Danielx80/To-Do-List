@@ -19,7 +19,7 @@ export default function Column({ status }: { status: TaskStatus, }) {
     drop: (item: { id: string; status: TaskStatus }) => {
       if (item.status !== "Done" && item.status !== status) {
         moveTask(item.id, status);
-        console.log(`Task ${item.id} moved to ${status}`);
+        console.log(`Tarea ${item.id} se arrastro a ${status}`);
       }
     },
     collect: (monitor) => ({
@@ -38,7 +38,7 @@ export default function Column({ status }: { status: TaskStatus, }) {
     [tasks, searchTerm, status]
   )
 
-  drop(drop(ref));
+  drop(ref);
   return (
     <Paper
       component="div"
@@ -59,13 +59,10 @@ export default function Column({ status }: { status: TaskStatus, }) {
     >
       <HeadColumn
         filteredTasks={filteredTasks}
-        statusConfig={statusConfig}
         status={status}
       />
-
       <StackComponent
         filteredTasks={filteredTasks}
-        statusConfig={statusConfig}
         status={status}
       />
     </Paper>

@@ -1,15 +1,14 @@
 import { Stack, Typography, useTheme } from '@mui/material'
 import DraggableTask from '../DraggableTask'
 import { Task } from '../../interface/Task';
-import { statusConfig as confing } from './statusConfig';
+import { statusConfig } from './statusConfig';
 
 interface StackComponentProp {
 	filteredTasks: Task[];
-	status: Task['status']
-	statusConfig: typeof confing;
+	status: Task['status'];
 }
 
-export default function StackComponent({ filteredTasks, status, statusConfig }: StackComponentProp) {
+export default function StackComponent({ filteredTasks, status, }: StackComponentProp) {
 	const theme = useTheme();
 	return (
 		<Stack spacing={1.5}>

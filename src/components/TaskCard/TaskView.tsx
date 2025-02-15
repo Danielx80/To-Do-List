@@ -38,7 +38,6 @@ export default function TaskView({ setIsEditing, deleteTask, task }: Card2Props)
 					}),
 				}}
 			/>
-
 			<Typography
 				variant="body1"
 				sx={{
@@ -54,8 +53,6 @@ export default function TaskView({ setIsEditing, deleteTask, task }: Card2Props)
 			>
 				{task.description}
 			</Typography>
-
-
 			<IconButton
 				onClick={() => deleteTask(task.id)}
 				size="small"

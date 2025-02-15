@@ -14,9 +14,17 @@ export default function FloatingButton({ handleOpen }: FloatingButtonProps) {
 				right: 20,
 				zIndex: 1000,
 				transition: "all 0.2s ease",
+				"&:hover": {
+					transform: "scale(1.1)",
+				},
+				"&:focus": {
+					outline: "2px solid #1976d2",
+				},
 			}}
 			color="primary"
 			aria-label="Crear una nueva tarea"
+			aria-haspopup="dialog"
+			title="Crear una nueva tarea"
 			onClick={handleOpen}
 		>
 			<AddIcon />

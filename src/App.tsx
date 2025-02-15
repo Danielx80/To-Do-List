@@ -2,11 +2,13 @@ import { Container, Grid, Stack, Box, Typography } from "@mui/material";
 import CreateTask from "./components/CreateTask/CreateTask";
 import Column from "./components/Column/Column";
 import Navbar from "./components/Navbar";
+import AlertComponent from "./components/AlertComponent";
 
 export default function App() {
   return (
     <>
       <Navbar />
+      <AlertComponent />
       <Container maxWidth="xl" sx={{ py: 10, display: 'grid' }}>
         <Stack >
           <CreateTask />

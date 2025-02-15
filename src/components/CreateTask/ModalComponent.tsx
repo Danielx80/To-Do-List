@@ -1,6 +1,6 @@
 import { useTheme } from '@mui/material/styles';
 import { Typography, OutlinedInput, Box, DialogActions, DialogTitle, Button, Modal } from '@mui/material';
-import React from 'react';
+import React, { useCallback } from 'react';
 
 interface ModalProps {
 	setInput: (input: string) => void;
@@ -34,6 +34,11 @@ export default function ModalComponent({
 }: ModalProps) {
 	const theme = useTheme();
 
+	const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => (
+		setInput(e.target.value)
+	), [setInput]);
+
+
 	return (
 		<Modal
 			keepMounted
@@ -53,7 +58,7 @@ export default function ModalComponent({
 							placeholder="Escribe una nueva tarea..."
 							size="small"
 							value={input}
-							onChange={(e) => setInput(e.target.value)}
+							onChange={handleChange}
 							inputProps={{
 								maxLength: 100,
 								'aria-label': 'Descripción de tarea',

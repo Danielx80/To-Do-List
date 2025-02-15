@@ -1,4 +1,4 @@
-import { Alert, Card, Snackbar, useTheme } from "@mui/material";
+import { Card, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import { Task } from "../../interface/Task";
 import CardComponent from "./CardComponent";
@@ -18,9 +18,7 @@ export default function TaskCard({ task, }: TaskCardProps) {
     editedDesc,
     setEditedDesc,
     handleEdit,
-    handleDelete,
-    snackbarOpen,
-    setSnackbarOpen,
+    handleDelete
   } = useTaskActions(task.id, task.description);
 
   return (
@@ -57,19 +55,7 @@ export default function TaskCard({ task, }: TaskCardProps) {
           task={task}
         />
       </Card>
-      <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={3000}
-        onClose={() => setSnackbarOpen(false)}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-      >
-        <Alert
-          onClose={() => setSnackbarOpen(false)}
-          severity="info"
-          sx={{ width: "100%" }}>
-          ¡Tarea Editada!
-        </Alert>
-      </Snackbar>
+
     </motion.div>
 
   );
